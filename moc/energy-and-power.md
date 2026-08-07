@@ -1,4 +1,6 @@
 # Energy and Power
+<!-- Map of Content (moc/). Curator index — no type/frontmatter.
+     Not a processed note; edit freely as new notes are added. -->
 
 Curated index of notes on power generation, regional energy grids, and fuel technologies.
 

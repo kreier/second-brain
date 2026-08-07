@@ -1,4 +1,6 @@
 # Metrics and Incentives
+<!-- Map of Content (moc/). Curator index — no type/frontmatter.
+     Not a processed note; edit freely as new notes are added. -->
 
 Curated index of notes covering proxy metric failures, incentive structures, and system measurement laws.
 

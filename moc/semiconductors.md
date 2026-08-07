@@ -1,4 +1,6 @@
 # Semiconductors
+<!-- Map of Content (moc/). Curator index — no type/frontmatter.
+     Not a processed note; edit freely as new notes are added. -->
 
 Curated index of notes on semiconductor fabrication, node roadmaps, and lithography technology.
 
