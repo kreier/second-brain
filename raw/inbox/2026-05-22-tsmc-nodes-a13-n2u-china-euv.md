@@ -1,3 +1,10 @@
+---
+captured: 2026-05-22T20:40:00+07:00
+source_type: llm-conversation
+platform: Claude
+raw_id: 2026-05-22-tsmc-nodes-a13-n2u-china-euv
+---
+
 # Raw import: TSMC nodes (A13, N2U) and China's EUV situation
 
 > Reconstructed summary of a past conversation, imported as example raw

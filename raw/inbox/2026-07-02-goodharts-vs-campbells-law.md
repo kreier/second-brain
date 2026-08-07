@@ -1,3 +1,10 @@
+---
+captured: 2026-07-02T11:05:00+07:00
+source_type: llm-conversation
+platform: Claude
+raw_id: 2026-07-02-goodharts-vs-campbells-law
+---
+
 # Raw import: Goodhart's Law vs. Campbell's Law
 
 > Reconstructed summary of a past conversation, imported as example raw

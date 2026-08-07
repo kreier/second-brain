@@ -1,3 +1,10 @@
+---
+captured: 2026-06-18T09:15:00+07:00
+source_type: llm-conversation
+platform: Claude
+raw_id: 2026-06-18-laos-energy-hongsa-lignite
+---
+
 # Raw import: Laos energy sector / Hongsa lignite plant
 
 > Reconstructed summary of a past conversation, imported as example raw

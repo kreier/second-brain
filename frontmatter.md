@@ -49,6 +49,32 @@ Notes:
   `raw/archive/`. Omit or set `null` for notes written directly (e.g. an
   `idea` you typed straight into the vault).
 
+## Raw material frontmatter (`raw/inbox/`, `raw/archive/`)
+
+Separate, smaller schema — raw files capture objective facts about the
+*source*, not editorial decisions about what it means. Do not put `type`,
+`tags`, or `related` on raw files: what a piece of raw material becomes
+(one note or several, which types) is an extraction decision made during
+processing, not something to pre-judge on the source itself.
+
+```yaml
+---
+captured: 2026-06-18T09:15:00+07:00    # when this material was captured/exported
+source_type: llm-conversation           # llm-conversation | voice-transcript | chat-export | email-export | note
+platform: Claude                          # e.g. Claude, ChatGPT, Gemini, WhatsApp, voice-memo app
+raw_id: 2026-06-18-laos-energy-hongsa-lignite   # matches filename stem; stable reference for `source:` even if renamed
+---
+```
+
+All four fields are optional but recommended — populate what you know at
+capture time. `raw_id` in particular is worth setting even for a quick
+voice memo, since it's the anchor processed notes will point back to via
+`source:`, and it's easiest to get right before the file is renamed or
+moved.
+
+This frontmatter travels with the file from `raw/inbox/` to `raw/archive/`
+unchanged — it's part of the immutable provenance record.
+
 ## Type-specific fields
 
 ### `project`
