@@ -1,3 +1,10 @@
+---
+captured: 2026-07-25T16:20:00+07:00
+source_type: llm-conversation
+platform: Claude
+raw_id: 2026-07-25-dudeney-spider-fly-geodesic
+---
+
 # Raw import: Dudeney spider-and-fly geodesic problem
 
 > Reconstructed summary of a past conversation, imported as example raw

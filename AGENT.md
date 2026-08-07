@@ -38,7 +38,13 @@ mutable. This mapping lives in `frontmatter.md` — check it, don't assume.
 
 ## Processing a raw file: step by step
 
-1. Read the file in `raw/inbox/`.
+1. Read the file in `raw/inbox/`. If it has frontmatter (`captured`,
+   `source_type`, `platform`, `raw_id` — see `frontmatter.md`), use it: set
+   the derived notes' `source:` to point at this file's `raw_id`, and let
+   `captured` inform the note's `created:` context if the material is being
+   processed well after capture. If the raw file has no frontmatter, don't
+   block on it — process anyway, and note the gap in `.agent/changelog.md`
+   rather than inventing values.
 2. Identify discrete atomic ideas, facts, decisions, or events worth keeping.
 3. For each one, check whether a related note already exists (search
    `processed/` by title, alias, and tags) before creating a new note —

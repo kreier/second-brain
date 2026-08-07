@@ -1,0 +1,23 @@
+# Normalize line endings in the repository to LF, regardless of what OS
+# checked the file out or committed it. This keeps diffs clean when agents
+# (running on Linux) and you (on Windows) both edit files here.
+#
+# text=auto: let git decide what's text vs binary
+# eol=lf: store as LF in the repo; git will still check files out with
+#         your platform's native line endings locally unless you set
+#         core.autocrlf, so this doesn't force CRLF->LF pain in your editor.
+* text=auto eol=lf
+
+# Explicit for the file types in this vault, in case autodetection guesses
+# wrong on any of them.
+*.md text eol=lf
+*.py text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+
+# Never touch binary files even if git misidentifies them as text.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.pdf binary
