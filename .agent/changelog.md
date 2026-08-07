@@ -8,4 +8,6 @@ line per batch, oldest first. See `AGENT.md` for the format and workflow.
 -->
 
 - 2026-08-07T19:17:31+07:00 | processed 2026-07-02-goodharts-vs-campbells-law.md -> topics/2026-07-02-goodharts-law.md, topics/2026-07-02-campbells-law.md, topics/2026-07-02-goodharts-vs-campbells-law.md | agent: gemini-cli
+- 2026-08-07T19:23:00+07:00 | processed 2026-05-22-tsmc-nodes-a13-n2u-china-euv.md -> topics/2026-05-22-tsmc-node-naming-conventions.md, topics/2026-05-22-china-euv-lithography-bottleneck.md | agent: gemini-cli
+
 
