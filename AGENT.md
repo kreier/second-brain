@@ -77,6 +77,69 @@ Append one line per processing action to `.agent/changelog.md`:
 - 2026-08-07T14:32:00+07:00 | processed 2026-08-07-laos-energy-transcript.md -> topics/hongsa-lignite-drying.md, topics/hongsa-bot-structure.md | agent: claude-code
 ```
 
+## Git workflow
+
+Two tiers, depending on how routine the change is.
+
+### Tier 1 — routine processing: commit directly to `main`
+
+Applies when you're following the processing steps above exactly: extracting
+notes from a clearly-scoped inbox file, using an existing template, no new
+`type`, no ambiguous entity merges. Commit straight to `main`. Keep commits
+small — one inbox file (or one clear batch) per commit, not one giant commit
+for the whole inbox. Small commits are easier for either of us to revert
+individually if one extraction turns out wrong.
+
+Commit message format:
+
+```
+process: <inbox-filename> -> <n> notes
+
+- processed/topics/foo.md (new)
+- processed/projects/bar.md (updated, linked)
+
+source archived: raw/archive/<inbox-filename>
+```
+
+### Tier 2 — structural or judgment-call changes: branch + PR
+
+Applies to anything that isn't purely mechanical:
+
+- proposing a new `type` or any change to `frontmatter.md`
+- uncertain entity resolution (unclear whether something duplicates an
+  existing note vs. deserves a new one)
+- a substantive edit to an existing mutable note that changes its meaning,
+  not just appends to it
+- bulk operations: re-tagging, migrating a folder, renaming across many files
+
+For these: create a branch named `agent/YYYY-MM-DD-short-description`, make
+the change there, and open a PR (`gh pr create`) rather than merging
+yourself. Leave it unmerged for review. PR description format:
+
+```markdown
+## What
+<one-line summary of the proposed change>
+
+## Why
+<what triggered this — which inbox file, which ambiguity>
+
+## Open questions
+<anything you're unsure about and want a decision on>
+```
+
+If a PR is closed without merging, don't re-propose the same change in a
+later session unless something material has changed — check open and
+recently-closed PRs before proposing a structural change.
+
+### Review queue — for ambiguous-but-not-structural cases
+
+If something is uncertain but doesn't rise to a Tier 2 PR (e.g. "not sure if
+this note duplicates an existing one, but not confident enough to merge or
+block on it"), commit as Tier 1 and add a line to
+`.agent/review-queue.md` instead of opening a PR. Don't leave the queue
+entry unresolved silently — it's there for the human to clear, not to be
+auto-resolved later without review.
+
 ## Hard rules
 
 - Never edit a file under `raw/archive/`.
