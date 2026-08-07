@@ -6,9 +6,9 @@ created: 2026-07-02T11:05:00+07:00
 source: raw/archive/2026-07-02-goodharts-vs-campbells-law.md
 status: processed
 tags: [metrics, systems, incentives, proxy-metrics, mental-models]
-related: ["[[2026-07-02-goodharts-law]]", "[[2026-07-02-campbells-law]]"]
+related: ["[[2026-07-02-goodharts-law]]", "[[2026-07-02-campbells-law]]", "[[goodharts-vs-campbells-law]]"]
 supersedes: null
-superseded_by: null
+superseded_by: goodharts-vs-campbells-law
 ---
 
 While both Goodhart's Law and Campbell's Law address the breakdown of quantitative metrics when used as targets, they differ in framing and emphasis:

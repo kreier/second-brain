@@ -6,7 +6,7 @@ created: 2026-07-02T11:05:00+07:00
 source: raw/archive/2026-07-02-goodharts-vs-campbells-law.md
 status: processed
 tags: [metrics, social-science, incentives, proxy-metrics, governance]
-related: ["[[2026-07-02-goodharts-law]]", "[[2026-07-02-goodharts-vs-campbells-law]]"]
+related: ["[[2026-07-02-goodharts-law]]", "[[goodharts-vs-campbells-law]]"]
 supersedes: null
 superseded_by: null
 ---

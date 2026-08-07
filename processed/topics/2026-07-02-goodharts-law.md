@@ -6,7 +6,7 @@ created: 2026-07-02T11:05:00+07:00
 source: raw/archive/2026-07-02-goodharts-vs-campbells-law.md
 status: processed
 tags: [metrics, economics, systems, proxy-metrics, AI]
-related: ["[[2026-07-02-campbells-law]]", "[[2026-07-02-goodharts-vs-campbells-law]]"]
+related: ["[[2026-07-02-campbells-law]]", "[[goodharts-vs-campbells-law]]"]
 supersedes: null
 superseded_by: null
 ---
