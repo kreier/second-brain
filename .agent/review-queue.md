@@ -9,3 +9,9 @@ queue" section, for when an agent should add here vs. open a PR instead.
       overlap with processed/topics/laos-power-purchase-agreements.md,
       created separately since unsure if they should merge.
 -->
+
+- [ ] 2026-08-07 | processed/topics/2026-05-22-tsmc-node-naming-conventions.md —
+      node names (A13, N2U) and roadmap positioning are unverified recalled details;
+      source explicitly flagged they were not checked against TSMC's actual disclosures.
+      Verify against official TSMC roadmap communications before treating as reliable.
+
