@@ -1,0 +1,7 @@
+{
+  "userIgnoreFilters": [
+    "raw/",
+    "scripts/",
+    ".github/"
+  ]
+}
