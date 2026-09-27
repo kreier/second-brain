@@ -3,10 +3,6 @@
 *.tmp
 *.log
 
-# Obsidian workspace cache
-.obsidian/workspace*
-.obsidian/cache
-
 # Environment & local settings (contains secrets/endpoints)
 settings.yml
 .env
@@ -16,25 +12,15 @@ settings.yml
 data/
 storage/
 mnt/
+memory/
+vault/
 *.db
 *.sqlite
 *.sqlite3
 
-# Personal Vault Data in repo (keep directory skeletons with .gitkeep)
-# Real knowledge lives on external 'memory' endpoint/mount.
-raw/inbox/*
-!raw/inbox/.gitkeep
-raw/archive/*
-!raw/archive/.gitkeep
-processed/topics/*
-!processed/topics/.gitkeep
-processed/ideas/*
-!processed/ideas/.gitkeep
-processed/projects/*
-!processed/projects/.gitkeep
-processed/travel/*
-!processed/travel/.gitkeep
-processed/logs/*
-!processed/logs/.gitkeep
-processed/synthesis/*
-!processed/synthesis/.gitkeep
+# Personal Vault Data (lives on external 'memory' endpoint)
+raw/
+processed/
+moc/
+.obsidian/
+.agent/

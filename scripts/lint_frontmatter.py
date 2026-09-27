@@ -131,9 +131,11 @@ def main():
     if args:
         files = [Path(a).resolve() for a in args]
     else:
-        files = sorted((VAULT_ROOT / "processed").rglob("*.md"))
-        demo_files = sorted((VAULT_ROOT / "demo/vault/processed").rglob("*.md"))
-        files.extend(demo_files)
+        files = []
+        if (VAULT_ROOT / "processed").exists():
+            files.extend(sorted((VAULT_ROOT / "processed").rglob("*.md")))
+        if (VAULT_ROOT / "demo/vault/processed").exists():
+            files.extend(sorted((VAULT_ROOT / "demo/vault/processed").rglob("*.md")))
 
     total_errors = 0
     for f in files:

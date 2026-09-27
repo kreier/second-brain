@@ -33,11 +33,12 @@ Always follow this sequence before starting work:
 - **Never commit personal notes to git**: Real personal knowledge lives on the external memory mount (`/mnt/memory`). Only safe synthetic data belongs in `demo/vault/`.
 - **Update status after work**: Once tasks or tests are executed, update `docs/STATUS.md` and check off items in the active phase specification.
 
----
-
 ## 3. Knowledge Vault Ingestion & Note Mutability Rules
 
-When operating on the Obsidian vault notes (`raw/`, `processed/`, `templates/`, `moc/`):
+When operating on the Obsidian vault notes on the external memory store (or in `demo/vault/`):
+
+> [!NOTE]
+> The canonical vault directories (`raw/inbox/`, `raw/archive/`, `processed/`, `moc/`) reside on the external **Memory** storage mount (`/mnt/memory` on the TX3 Mini or the path in `settings.yml`), not in the root git tree. Sample fixtures are provided in `demo/vault/`.
 
 ### The Three-Stage Flow
 1. Material lands in `raw/inbox/` — transcript, export, email, chat log.
