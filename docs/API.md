@@ -13,7 +13,7 @@
 | **Curator** | `8001` | `10.5.5.2:8001` | Ingestion, Normalization, Deduplication |
 | **Brain** | `8002` | `10.5.5.2:8002` | Knowledge Retrieval & LLM Gateway Proxy |
 | **Statistics** | `8003` | `10.5.5.2:8003` | Event Metrics & Funnel Analytics |
-| **Penta LLM** | `11434` | `10.5.5.x:11434` | Ollama / vLLM Qwen 3.8 27B Server |
+| **Penta LLM** | `11434` | `10.5.5.5:11434` | Ollama / vLLM Qwen 3.8 27B Server |
 | **Manager** | CLI / `8080` | Host `10.5.5.2` | Lifecycle, Updates, Hardware Relay |
 
 ---

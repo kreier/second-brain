@@ -16,7 +16,7 @@ Automate the physical power lifecycle of the heavy Penta GPU workstation to cons
 - [ ] Host Manager power module (`manager/power.py` / CLI `second-brain power`):
   - Serial communication protocol with Arduino.
   - Motherboard power switch momentary contact simulation (pulsing for 500ms).
-- [ ] Penta boot watcher and health probe (polling `http://penta:11434/api/tags` until ready).
+- [ ] Penta boot watcher and health probe (polling `http://10.5.5.5:11434/api/tags` until ready).
 - [ ] Safe shutdown orchestrator:
   - Issues clean OS shutdown command over SSH (`sudo shutdown -h now`).
   - Monitors ping/network loss to confirm machine is fully off.

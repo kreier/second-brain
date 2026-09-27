@@ -28,26 +28,32 @@ The platform operates inside an isolated "white room" vault subnet (`10.5.5.0/24
      │  Tanix TX3 Mini   │   (Pulsed power header)     │  "Penta" Machine  │
      │  ARM64 / Armbian  │                             │  4x Pascal GPUs   │
      │  IP: 10.5.5.2     │                             │  30 GB VRAM       │
-     │                   │◄───────────────────────────►│  Qwen 3.8 27B     │
-     │  Docker Compose   │       REST / HTTP API       │  Ollama / vLLM    │
-     └─────────┬─────────┘        (Port 11434)         └───────────────────┘
+     │                   │◄───────────────────────────►│  IP: 10.5.5.5     │
+     │  Docker Compose   │       REST / HTTP API       │  Qwen 3.8 27B     │
+     │  Services         │       (Port 11434)          │  Ubuntu 24.04 LTS │
+     └─────────┬─────────┘                             └───────────────────┘
                │
                │ USB 3.0 High-Speed Mount
                ▼
      ┌───────────────────┐
      │  "MEMORY" STORE   │
      │  External USB SSD │
-     │  - raw/ sources   │
-     │  - processed/     │
+     │  - /mnt/memory    │
      │  - second_brain.db│
      └───────────────────┘
 ```
 
-- **Brain (`10.5.5.2`)**: Tanix TX3 Mini (ARM64 quad-core, 2 GB RAM) running Armbian, Docker Compose services, and the host-level manager.
+- **Brain (`10.5.5.2`)**: Tanix TX3 Mini (ARM64 quad-core, 2 GB RAM) running Armbian, Docker Compose services, and host manager.
 - **Memory**: Dedicated external USB SSD storage mounted at `/mnt/memory` holding the Obsidian markdown vault and SQLite database.
-- **Intelligence ("Penta")**: Dedicated compute rig with 4x Pascal Nvidia GPUs (30 GB VRAM) running **Qwen 3.8 27B** local inference completely offline.
-- **Power Automation**: TX3 Mini controls an Arduino via USB serial to pulse a relay connected to Penta's motherboard power pins, booting the GPU workstation only when batch inference jobs are queued and cleanly shutting it down when finished.
+- **Intelligence ("Penta" @ `10.5.5.5`)**: Dedicated compute workstation (Ubuntu 24.04 LTS, i3-6100, 16GB RAM) with **four Pascal Nvidia GPUs** (1x GTX 1070 8GB, 2x P104-100 8GB, 1x P106-100 6GB = **30 GB aggregate VRAM**) running **Qwen 3.8 27B** local inference completely offline. See [Reference Hardware Profile](docs/profiles/reference-vault-penta.md).
+- **Power Automation**: TX3 Mini controls an Arduino via USB serial to pulse a relay connected to Penta's motherboard power pins, booting the GPU workstation only when batch inference jobs are queued and cleanly shutting it down via ACPI over SSH when finished.
 - **Gateway (`10.5.5.1`)**: Firewall switch that permits temporary outbound access to update Docker containers and Git commits, then returns to strictly airgapped operation.
+
+### Universal Hardware-Agnostic Deployment
+The repository is designed to be **100% hardware-agnostic**:
+- Anyone can clone this repository and deploy it on a single laptop, desktop, or server using `docker compose up`.
+- Environment configuration is decoupled via [`config/settings.example.yml`](config/settings.example.yml) (copy to `settings.yml`), allowing custom paths for `memory` (e.g. `./data/memory` or local Obsidian vault) and endpoints for `intelligence` (e.g. `http://localhost:11434` or cloud endpoints).
+- An interactive public preview running on safe synthetic data is deployed to **[GitHub Pages](https://kreier.github.io/second-brain/)**.
 
 ---
 

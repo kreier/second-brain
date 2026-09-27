@@ -77,14 +77,32 @@ The entire system operates inside an isolated, private "white room" network (`10
    - Dedicated external high-reliability storage directly mounted to `/mnt/memory` on the Brain node.
    - Houses the canonical Obsidian vault (`raw/`, `processed/`, `templates/`, `moc/`), SQLite indices, vector embeddings, and operational logs.
 
-4. **Intelligence Node ("Penta" — High-Performance GPU Rig)**:
-   - Dedicated compute workstation featuring **four Pascal Nvidia GPUs** with **30 GB aggregate VRAM**.
-   - Runs **Qwen 3.8 27B** quantized weights (via Ollama or llama.cpp / vLLM).
+4. **Intelligence Node ("Penta" @ `10.5.5.5` — Quad-GPU Workstation)**:
+   - Dedicated compute workstation running Ubuntu 24.04 LTS, Intel Core i3-6100, 16 GB DDR4 RAM, and 256 GB NVMe SSD.
+   - **Quad-GPU Pascal Subsystem (30 GB Total VRAM)**:
+     - 1x NVIDIA GeForce GTX 1070 (8 GB GDDR5)
+     - 2x NVIDIA P104-100 (8 GB each = 16 GB GDDR5X)
+     - 1x NVIDIA P106-100 (6 GB GDDR5)
+   - Runs **Qwen 3.8 27B** local inference with layer offloading across all 4 devices via Ollama / llama.cpp on port 11434.
    - High power draw: powered on **only on-demand** via the TX3 Mini.
 
 5. **Power Management Link (TX3 Mini → Arduino → Relay → Penta)**:
-   - An Arduino microcontroller connected via USB to the TX3 Mini controls a mechanical/solid-state relay wired directly to Penta's motherboard `POWER_SW` header pins.
-   - When batch inference or complex queries are scheduled, TX3 pulses the relay to boot Penta, waits for the health check endpoint, executes queued inference jobs, and issues a clean ACPI shutdown before disconnecting standby power if needed.
+   - An Arduino microcontroller connected via USB to the TX3 Mini controls an optical relay wired directly to Penta's motherboard `POWER_SW` header pins.
+   - When batch inference or complex queries are scheduled, TX3 pulses the relay to boot Penta, waits for the health check endpoint (`http://10.5.5.5:11434/api/tags`), executes queued inference jobs, and issues a clean ACPI shutdown over SSH before disconnecting standby power if needed.
+
+---
+
+### 2.1 Hardware-Agnostic Design & Configuration Abstraction
+
+While the **White Room Vault** (`10.5.5.0/24`) with TX3 Mini (`10.5.5.2`) and Penta (`10.5.5.5`) represents our [Canonical Reference Profile](profiles/reference-vault-penta.md), the entire codebase is **100% hardware-agnostic**:
+
+- **No Hardcoded Network Addresses**: Containers and scripts read endpoints and paths from environment variables and [`config/settings.example.yml`](../config/settings.example.yml) copied to `settings.yml`.
+- **Universal Portability**: Anyone can run Second Brain on a laptop, workstation, or NAS by cloning the repo, configuring `settings.yml`, and running `docker compose up`.
+- **Abstracted Memory & Intelligence**:
+  - `memory.path`: Points to `/mnt/memory` on the reference TX3 Mini, or `./data/memory` / local Obsidian vault on a personal laptop.
+  - `intelligence.endpoint`: Points to `http://10.5.5.5:11434` for Penta, or `http://localhost:11434` / cloud OpenAI-compatible endpoints / `mock` mode on other systems.
+  - `power_management.enabled`: Set to `true` for systems with dedicated GPU power relays, or `false` for single-box deployments.
+- **Reference Profile Benchmark**: Performance evaluations, model quantization choices (Qwen 3.8 27B), and multi-GPU tensor layer offloading use the Penta profile as the primary benchmark.
 
 ---
 

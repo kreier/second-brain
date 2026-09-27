@@ -1,0 +1,184 @@
+[
+  {
+    "path": "vault/processed/ideas/goodharts-vs-campbells-law.md",
+    "title": "Goodhart",
+    "type": "idea",
+    "tags": [
+      "metrics",
+      "systems",
+      "incentives",
+      "proxy-metrics",
+      "mental-models"
+    ],
+    "content": "---\nid: goodharts-vs-campbells-law\ntype: idea\ntitle: Goodhart's Law vs. Campbell's Law\ncreated: 2026-07-02T11:05:00+07:00\nupdated: 2026-08-07T19:47:34+07:00\nsource: raw/archive/2026-07-02-goodharts-vs-campbells-law.md\nstatus: draft\ntags: [metrics, systems, incentives, proxy-metrics, mental-models]\nrelated: [\"[[2026-07-02-goodharts-law]]\", \"[[2026-07-02-campbells-law]]\"]\nsupersedes: 2026-07-02-goodharts-vs-campbells-law\n---\n\nBoth laws describe what happens when a quantitative measure becomes an optimization target, but they frame the failure differently.\n\n- **Goodhart's Law (Statistical / Information-Theoretic)**: The proxy metric loses its correlation with the underlying objective once it is directly targeted. The failure is epistemic \u2014 the number stops meaning what it meant.\n- **Campbell's Law (Behavioral / Institutional)**: The metric creates corrupting incentive pressure on the people and processes within the system. The failure is social \u2014 actors game the measure at the expense of the real goal.\n\nThe distinction matters for diagnosis: Goodhart points at the model (the metric is the wrong thing to optimize), Campbell points at the incentive structure (the right metric breaks under pressure regardless).\n\n## Worked examples\n\n| Example | Better framing | Why |\n|---|---|---|\n| Teaching to the test | Campbell | Teachers and schools face institutional pressure; the underlying educational process is corrupted by human actors |\n| Lines-of-code KPI | Goodhart | The proxy simply stops tracking output quality once targeted; no active corruption needed |\n| AI reward hacking | Goodhart | Optimizer finds a local maximum in the reward surface that diverges from intent \u2014 purely mechanical, no human behavior involved |\n\n## Open threads\n\n- How do these two laws apply to AI training at the institutional level (labs, evals, benchmarks) rather than just the algorithmic level? Benchmark saturation (e.g. MMLU, HumanEval) looks like Campbell's \u2014 the benchmark survives but the signal corrupts as the industry targets it.\n- Look into the **Lucas critique** (macroeconomics, 1976) as a third member of this family: structural relationships in econometric models break down once agents anticipate and adapt to policy rules. Possibly worth a separate fact note.\n- Other candidates: Cobra effect, Perverse incentive (Wikipedia), Teach to the test literature.\n"
+  },
+  {
+    "path": "vault/processed/topics/2026-06-18-lignite-coal-predrying-technology.md",
+    "title": "Lignite Coal Pre-Drying Technologies",
+    "type": "fact",
+    "tags": [
+      "energy",
+      "engineering",
+      "coal",
+      "thermal-power"
+    ],
+    "content": "---\nid: 2026-06-18-lignite-coal-predrying-technology\ntype: fact\ntitle: Lignite Coal Pre-Drying Technologies\ncreated: 2026-06-18T09:15:00+07:00\nsource: raw/archive/2026-06-18-laos-energy-hongsa-lignite.md\nstatus: processed\ntags: [energy, engineering, coal, thermal-power]\nrelated: [\"[[2026-06-18-hongsa-lignite-power-plant]]\"]\nsupersedes: null\nsuperseded_by: null\n---\n\nLignite is a low-rank coal characterized by high intrinsic moisture content, which severely lowers boiler combustion efficiency and increases parasitic energy loss spent evaporating water during burning.\n\n### Pre-Drying Approaches\n- **Exhaust Gas Fluidized Bed Drying**: Uses flue gas waste heat to dry coal particles in a fluidized bed prior to boiler injection.\n- **Hot Air Drying**: Directs heated air streams across raw lignite feed.\n- **Mechanical Thermal Dewatering**: Applies heat and pressure to squeeze out moisture mechanically before combustion.\n\nPre-drying increases net calorific value and reduces parasitic boiler load.\n"
+  },
+  {
+    "path": "vault/processed/topics/2026-07-02-goodharts-law.md",
+    "title": "Goodhart",
+    "type": "fact",
+    "tags": [
+      "metrics",
+      "economics",
+      "systems",
+      "proxy-metrics",
+      "AI"
+    ],
+    "content": "---\nid: 2026-07-02-goodharts-law\ntype: fact\ntitle: Goodhart's Law\ncreated: 2026-07-02T11:05:00+07:00\nsource: raw/archive/2026-07-02-goodharts-vs-campbells-law.md\nstatus: processed\ntags: [metrics, economics, systems, proxy-metrics, AI]\nrelated: [\"[[2026-07-02-campbells-law]]\", \"[[goodharts-vs-campbells-law]]\"]\nsupersedes: null\nsuperseded_by: null\n---\n\nGoodhart's Law states: \"When a measure becomes a target, it ceases to be a good measure.\"\n\nOriginally formulated by British economist Charles Goodhart in the context of monetary policy and economic indicators, the principle applies broadly to any quantitative system where a proxy metric is directly targeted for optimization. Once targeted, the correlation between the proxy metric and the underlying objective breaks down.\n\n### Classic Examples\n- **Software Engineering**: Optimizing proxy KPIs such as lines of code written or ticket closure counts leads to inflated metrics without improving actual software quality or output.\n- **AI Training (Reward Hacking)**: In reinforcement learning, optimizing a model directly against a surrogate reward function can cause reward hacking, where the AI optimizes the score in unintended ways that diverge from human intent.\n"
+  },
+  {
+    "path": "vault/processed/topics/2026-07-02-goodharts-vs-campbells-law.md",
+    "title": "Goodhart",
+    "type": "fact",
+    "tags": [
+      "metrics",
+      "systems",
+      "incentives",
+      "proxy-metrics",
+      "mental-models"
+    ],
+    "content": "---\nid: 2026-07-02-goodharts-vs-campbells-law\ntype: fact\ntitle: Goodhart's Law vs. Campbell's Law\ncreated: 2026-07-02T11:05:00+07:00\nsource: raw/archive/2026-07-02-goodharts-vs-campbells-law.md\nstatus: processed\ntags: [metrics, systems, incentives, proxy-metrics, mental-models]\nrelated: [\"[[2026-07-02-goodharts-law]]\", \"[[2026-07-02-campbells-law]]\", \"[[goodharts-vs-campbells-law]]\"]\nsupersedes: null\nsuperseded_by: goodharts-vs-campbells-law\n---\n\nWhile both Goodhart's Law and Campbell's Law address the breakdown of quantitative metrics when used as targets, they differ in framing and emphasis:\n\n- **Goodhart's Law (Statistical / Information-Theoretic Framing)**: Focuses on how a proxy metric loses statistical validity and predictive power once it becomes an explicit target of optimization.\n- **Campbell's Law (Behavioral / Institutional Framing)**: Focuses on the corrupting incentive pressures exerted on human actors and social processes within a system when metrics determine decisions.\n\n### Synthesis & Overlap\n- **Campbell's Case**: Standardized test score optimization (\"teaching to the test\") exemplifies Campbell's Law by distorting educational practices and human incentives.\n- **Goodhart's Case**: Optimizing software developer output via lines-of-code metrics exemplifies Goodhart's Law by breaking the metric's correlation with value.\n- **AI Systems Context**: AI reward hacking represents a pure algorithmic instance of Goodhart's Law, where optimization against a target reward signal causes divergence from intended behavior without human behavioral corruption.\n"
+  },
+  {
+    "path": "vault/processed/topics/2026-06-18-hongsa-lignite-power-plant.md",
+    "title": "Hongsa Lignite Power Plant in Laos",
+    "type": "fact",
+    "tags": [
+      "laos",
+      "energy",
+      "coal",
+      "bot-contract",
+      "southeast-asia"
+    ],
+    "content": "---\nid: 2026-06-18-hongsa-lignite-power-plant\ntype: fact\ntitle: Hongsa Lignite Power Plant in Laos\ncreated: 2026-06-18T09:15:00+07:00\nsource: raw/archive/2026-06-18-laos-energy-hongsa-lignite.md\nstatus: processed\ntags: [laos, energy, coal, bot-contract, southeast-asia]\nrelated: [\"[[2026-06-18-lignite-coal-predrying-technology]]\"]\nsupersedes: null\nsuperseded_by: null\n---\n\nThe Hongsa power plant in Xayaburi province, Laos (near the Thai border) is a major thermal power facility in a national energy sector otherwise dominated by hydropower.\n\n### Key Characteristics\n- **Fuel Source**: Mine-mouth power plant burning locally mined lignite coal (low-rank coal), eliminating fuel import costs.\n- **BOT Structure**: Developed as a Build-Operate-Transfer project where a private consortium operates the plant for a fixed concession period before transferring ownership to the Lao government.\n- **Power Offtake**: Primary electricity generation is exported to Thailand via Electricity Generating Authority of Thailand (EGAT) long-term power purchase agreements (PPAs).\n"
+  },
+  {
+    "path": "vault/processed/topics/2026-05-22-tsmc-node-naming-conventions.md",
+    "title": "TSMC Node Naming Conventions (A13 and N2U)",
+    "type": "fact",
+    "tags": [
+      "semiconductors",
+      "tsmc",
+      "process-nodes",
+      "hardware"
+    ],
+    "content": "---\nid: 2026-05-22-tsmc-node-naming-conventions\ntype: fact\ntitle: TSMC Node Naming Conventions (A13 and N2U)\ncreated: 2026-05-22T20:40:00+07:00\nsource: raw/archive/2026-05-22-tsmc-nodes-a13-n2u-china-euv.md\nstatus: processed\ntags: [semiconductors, tsmc, process-nodes, hardware]\nrelated: [\"[[2026-05-22-china-euv-lithography-bottleneck]]\"]\nsupersedes: null\nsuperseded_by: null\n---\n\nTSMC's semiconductor process node naming scheme has shifted from nanometer-based labels (N7, N5, N3) to angstrom-based labels for sub-2nm nodes.\n\n> **Confidence: unverified recall.** The source conversation explicitly noted these details were not checked against TSMC's actual roadmap disclosures and that naming conventions shift release-to-release. Treat as orientation, not ground truth. See review queue.\n\n### Key Node Designations\n- **A13 Node**: Refers to a ~1.3nm-class process node in TSMC's roadmap, positioned several generations beyond the 2nm (N2) node.\n- **N2U Node**: A specialized variant/derivative of the 2nm (N2) base node, tailored for specific power, performance, or area optimization targets.\n\n"
+  },
+  {
+    "path": "vault/processed/topics/2026-07-02-campbells-law.md",
+    "title": "Campbell",
+    "type": "fact",
+    "tags": [
+      "metrics",
+      "social-science",
+      "incentives",
+      "proxy-metrics",
+      "governance"
+    ],
+    "content": "---\nid: 2026-07-02-campbells-law\ntype: fact\ntitle: Campbell's Law\ncreated: 2026-07-02T11:05:00+07:00\nsource: raw/archive/2026-07-02-goodharts-vs-campbells-law.md\nstatus: processed\ntags: [metrics, social-science, incentives, proxy-metrics, governance]\nrelated: [\"[[2026-07-02-goodharts-law]]\", \"[[goodharts-vs-campbells-law]]\"]\nsupersedes: null\nsuperseded_by: null\n---\n\nCampbell's Law states: \"The more any quantitative social indicator is used for social decision-making, the more subject it will be to corruption pressures and the more apt it will be to distort and corrupt the social processes it is intended to monitor.\"\n\nCoined by social scientist Donald T. Campbell, this law highlights how heavy reliance on quantitative metrics in human systems creates incentive pressures that corrupt both the metric and the human behavior behind it.\n\n### Classic Examples\n- **High-Stakes Testing**: In education, evaluating schools or teachers based primarily on standardized test scores leads to \"teaching to the test\" or outright metric manipulation, undermining overall educational quality.\n"
+  },
+  {
+    "path": "vault/processed/topics/2026-05-22-china-euv-lithography-bottleneck.md",
+    "title": "China Domestic EUV Lithography Bottlenecks",
+    "type": "fact",
+    "tags": [
+      "semiconductors",
+      "china",
+      "euv",
+      "lithography",
+      "geopolitics"
+    ],
+    "content": "---\nid: 2026-05-22-china-euv-lithography-bottleneck\ntype: fact\ntitle: China Domestic EUV Lithography Bottlenecks\ncreated: 2026-05-22T20:40:00+07:00\nsource: raw/archive/2026-05-22-tsmc-nodes-a13-n2u-china-euv.md\nstatus: processed\ntags: [semiconductors, china, euv, lithography, geopolitics]\nrelated: [\"[[2026-05-22-tsmc-node-naming-conventions]]\"]\nsupersedes: null\nsuperseded_by: null\n---\n\nThe primary technological bottleneck for domestic leading-edge semiconductor fabrication in China is extreme ultraviolet (EUV) lithography hardware, rather than chip process engineering knowledge.\n\n### Bottleneck Components\n- **Light Source & Precision Optics**: Manufacturing commercial-grade high-power EUV light sources and defect-free reflective optics remains the critical technological hurdle.\n- **Supply Chain Concentration**: ASML holds a commercial monopoly on production EUV scanner systems. Domestic Chinese initiatives (including SMEE) remain behind ASML's commercial deployment benchmarks.\n"
+  },
+  {
+    "path": "vault/processed/topics/2026-07-25-dudeneys-spider-and-fly-puzzle.md",
+    "title": "Dudeney",
+    "type": "fact",
+    "tags": [
+      "puzzles",
+      "mathematics",
+      "geometry",
+      "geodesics"
+    ],
+    "content": "---\nid: 2026-07-25-dudeneys-spider-and-fly-puzzle\ntype: fact\ntitle: Dudeney's Spider and Fly Puzzle\ncreated: 2026-07-25T16:20:00+07:00\nsource: raw/archive/2026-07-25-dudeney-spider-fly-geodesic.md\nstatus: processed\ntags: [puzzles, mathematics, geometry, geodesics]\nrelated: [\"[[2026-07-25-polyhedral-net-unfolding-for-geodesics]]\"]\nsupersedes: null\nsuperseded_by: null\n---\n\nHenry Dudeney's classic \"spider and fly\" puzzle asks for the shortest path (geodesic) a spider can crawl along the interior surfaces of a rectangular cuboid room to reach a fly positioned on the opposite wall.\n\n### Key Insight\n- **Counter-Intuitive Shortest Path**: The shortest surface path is rarely the obvious direct route (e.g., across the floor and up the wall). Depending on room dimensions, the shortest path crosses five surfaces, traveling across side walls and ceiling/floor.\n- **Solution Method**: Solved by unfolding the 3D room into flat 2D net configurations and connecting the spider and fly positions with straight line segments across unfolded faces.\n"
+  },
+  {
+    "path": "vault/processed/topics/2026-07-25-polyhedral-net-unfolding-for-geodesics.md",
+    "title": "Polyhedral Net Unfolding for Geodesics",
+    "type": "fact",
+    "tags": [
+      "geometry",
+      "mathematics",
+      "algorithms",
+      "geodesics"
+    ],
+    "content": "---\nid: 2026-07-25-polyhedral-net-unfolding-for-geodesics\ntype: fact\ntitle: Polyhedral Net Unfolding for Geodesics\ncreated: 2026-07-25T16:20:00+07:00\nsource: raw/archive/2026-07-25-dudeney-spider-fly-geodesic.md\nstatus: processed\ntags: [geometry, mathematics, algorithms, geodesics]\nrelated: [\"[[2026-07-25-dudeneys-spider-and-fly-puzzle]]\"]\nsupersedes: null\nsuperseded_by: null\n---\n\nNet unfolding is a general technique for computing shortest surface paths (geodesics) on 3D polyhedral surfaces without smooth calculus.\n\n### Technique\n1. **Develop Flat Nets**: Unfold the 3D faces of the polyhedron into candidate 2D planar developments (nets) representing different sequences of adjacent face traversals.\n2. **Straight-Line Geodesics**: On a flat Euclidean 2D net, the shortest path between any two points is a straight line segment.\n3. **Compare Candidates**: Calculate Euclidean distances of straight-line paths across all plausible net unfoldings to identify the global minimum surface path.\n"
+  },
+  {
+    "path": "vault/raw/archive/2026-07-25-dudeney-spider-fly-geodesic.md",
+    "title": "2026-07-25-dudeney-spider-fly-geodesic.md",
+    "type": "llm-conversation",
+    "tags": [],
+    "content": "---\ncaptured: 2026-07-25T16:20:00+07:00\nsource_type: llm-conversation\nplatform: Claude\nraw_id: 2026-07-25-dudeney-spider-fly-geodesic\n---\n\n# Raw import: Dudeney spider-and-fly geodesic problem\n\n> Reconstructed summary of a past conversation, imported as example raw\n> material for the processing pipeline. Not a verbatim transcript.\n\n- Worked through the classic Dudeney \"spider and fly\" puzzle: a spider and\n  a fly sit at fixed points inside a rectangular room (on opposite walls),\n  and the question is the shortest path the spider can crawl along the\n  room's surfaces to reach the fly \u2014 surprisingly, the shortest path isn't\n  always the \"obvious\" one (e.g. straight across the floor then up a wall);\n  depending on room proportions, unfolding a less intuitive combination of\n  walls/ceiling gives a shorter path.\n- The general method: \"unfold\" the 3D room into a flat 2D net for each\n  candidate combination of surfaces the path could cross, since a straight\n  line in the unfolded net corresponds to the shortest path across those\n  folded surfaces in 3D. Compare path lengths across all plausible\n  unfoldings to find the true minimum.\n- Built this out as an HTML/SVG visualization showing the different\n  unfolded nets side by side with their straight-line paths drawn in, to\n  make the non-obvious solution visually intuitive.\n- Open thread: generalizing the same unfolding technique to other\n  geodesic-on-a-surface problems (e.g. shortest path across a cube,\n  or curved surfaces where true geodesics require calculus of variations\n  rather than a flat unfolding).\n\n## Possible follow-ups\n- Extract the unfolding method as a general note, separate from this\n  specific puzzle instance \u2014 it's reusable for other polyhedral\n  shortest-path problems.\n- Link to the HTML/SVG artifact if it's saved somewhere retrievable.\n"
+  },
+  {
+    "path": "vault/raw/archive/2026-07-02-goodharts-vs-campbells-law.md",
+    "title": "2026-07-02-goodharts-vs-campbells-law.md",
+    "type": "llm-conversation",
+    "tags": [],
+    "content": "---\ncaptured: 2026-07-02T11:05:00+07:00\nsource_type: llm-conversation\nplatform: Claude\nraw_id: 2026-07-02-goodharts-vs-campbells-law\n---\n\n# Raw import: Goodhart's Law vs. Campbell's Law\n\n> Reconstructed summary of a past conversation, imported as example raw\n> material for the processing pipeline. Not a verbatim transcript.\n> (Note: this is Goodhart's Law, not \"Finbel's law\" \u2014 likely a\n> mishearing/typo from voice-to-text.)\n\n- Goodhart's Law: \"When a measure becomes a target, it ceases to be a good\n  measure.\" Originally formulated in the context of monetary policy and\n  economic indicators, now applied broadly to any system where a proxy\n  metric gets optimized directly.\n- Campbell's Law is closely related but predates it in the social-science\n  context: \"The more any quantitative social indicator is used for social\n  decision-making, the more subject it will be to corruption pressures and\n  the more apt it will be to distort and corrupt the social processes it is\n  intended to monitor.\" Coined by Donald T. Campbell, originally discussing\n  standardized testing and achievement measures.\n- The distinction we discussed: Goodhart's framing is more about the\n  measure losing statistical validity once targeted; Campbell's framing\n  emphasizes the corrupting incentive pressure on the underlying process\n  and the people within it \u2014 arguably the more cynical/behavioral of the\n  two.\n- Examples used: standardized test score optimization (teaching to the\n  test) is the classic Campbell's Law case; a company optimizing a proxy\n  KPI (e.g. lines of code, ticket-closure count) at the expense of the\n  actual goal it was meant to track is the classic Goodhart's Law case.\n- Open thread: how these two laws apply to AI training itself \u2014 reward\n  hacking as an instance of Goodhart's Law where an optimization target\n  (the reward signal) diverges from the actual intended objective.\n\n## Possible follow-ups\n- Look into other named \"laws\" in this same family (e.g. Lucas critique)\n  for a broader topic note on proxy-metric failure modes.\n"
+  },
+  {
+    "path": "vault/raw/archive/2026-05-22-tsmc-nodes-a13-n2u-china-euv.md",
+    "title": "2026-05-22-tsmc-nodes-a13-n2u-china-euv.md",
+    "type": "llm-conversation",
+    "tags": [],
+    "content": "---\ncaptured: 2026-05-22T20:40:00+07:00\nsource_type: llm-conversation\nplatform: Claude\nraw_id: 2026-05-22-tsmc-nodes-a13-n2u-china-euv\n---\n\n# Raw import: TSMC nodes (A13, N2U) and China's EUV situation\n\n> Reconstructed summary of a past conversation, imported as example raw\n> material for the processing pipeline. Not a verbatim transcript.\n\n- TSMC's naming convention has shifted from purely nm-based (N7, N5, N3) to\n  angstrom-based for newer nodes \u2014 \"A13\" refers to what would be roughly a\n  1.3nm-class node in the older naming scheme, positioned some generations\n  past N2.\n- N2U came up as a variant/derivative of the N2 (2nm-class) node \u2014 worth\n  double-checking the exact positioning and whether \"U\" denotes an\n  ultra/enhanced version aimed at a specific performance or power target,\n  since naming conventions like this shift release to release.\n- Separately discussed China's domestic EUV lithography development \u2014\n  the core bottleneck for China's leading-edge fabs isn't process\n  engineering knowledge but EUV light source and optics manufacturing,\n  historically monopolized by ASML. Domestic efforts (SMEE and others) are\n  working on it but were, as of our discussion, well behind ASML's\n  commercial EUV tools.\n- Thread connected back to comparing AI dev platforms (Claude vs Codex) \u2014\n  tangential jump from \"what's the cutting edge in chip fabrication\" to\n  \"what's the cutting edge in the tools built on top of that hardware,\"\n  including token usage tracking and plan/tier differences across\n  providers.\n\n## Possible follow-ups\n- Get current, sourced figures on A13 timeline and N2U specifics \u2014 this\n  was discussion/recall, not verified against TSMC's actual roadmap\n  disclosures.\n- Track China domestic EUV progress over time as a recurring topic.\n"
+  },
+  {
+    "path": "vault/raw/archive/2026-06-18-laos-energy-hongsa-lignite.md",
+    "title": "2026-06-18-laos-energy-hongsa-lignite.md",
+    "type": "llm-conversation",
+    "tags": [],
+    "content": "---\ncaptured: 2026-06-18T09:15:00+07:00\nsource_type: llm-conversation\nplatform: Claude\nraw_id: 2026-06-18-laos-energy-hongsa-lignite\n---\n\n# Raw import: Laos energy sector / Hongsa lignite plant\n\n> Reconstructed summary of a past conversation, imported as example raw\n> material for the processing pipeline. Not a verbatim transcript.\n\n- Laos's energy sector leans heavily on hydropower for domestic use and\n  export (notably to Thailand and Vietnam), but Hongsa is a major exception:\n  a large lignite-fired power plant in Xayaburi province, near the Thai\n  border.\n- Hongsa is structured as a BOT (Build-Operate-Transfer) project \u2014 a\n  consortium builds and operates the plant for a fixed concession period,\n  then ownership transfers to the Lao government. Financing and offtake\n  agreements are structured around long-term power purchase agreements,\n  mostly exporting electricity to Thailand (EGAT).\n- The plant burns lignite (a low-rank, high-moisture coal) mined on-site or\n  nearby, avoiding the cost of importing higher-grade coal.\n- Lignite's main engineering challenge is its high moisture content, which\n  lowers combustion efficiency. Pre-drying technologies address this before\n  the coal reaches the boiler \u2014 reducing moisture improves calorific value\n  and cuts the parasitic energy load the plant spends just evaporating\n  water during combustion.\n- We discussed a few different pre-drying approaches conceptually: exhaust\n  gas fluidized bed drying, hot air drying, and mechanical\n  thermal dewatering \u2014 trade-offs are around energy source for the drying\n  step (using waste heat vs. diverting live steam) and moisture reduction\n  achieved.\n- Open thread: how Hongsa's specific pre-drying setup compares to other\n  lignite plants regionally, and whether the BOT structure creates\n  different incentives for efficiency investment vs. a fully\n  government-owned plant.\n\n## Possible follow-ups\n- Compare Hongsa's emissions profile to hydropower alternatives Laos could\n  have built instead.\n- Look at how the BOT concession period affects maintenance/efficiency\n  investment incentives over time.\n"
+  },
+  {
+    "path": "vault/moc/metrics-and-incentives.md",
+    "title": "metrics-and-incentives.md",
+    "type": "note",
+    "tags": [],
+    "content": "# Metrics and Incentives\n<!-- Map of Content (moc/). Curator index \u2014 no type/frontmatter.\n     Not a processed note; edit freely as new notes are added. -->\n\nCurated index of notes covering proxy metric failures, incentive structures, and system measurement laws.\n\n## Proxy Metric Failure Laws\n- [[2026-07-02-goodharts-law]] \u2014 Statistical breakdown of proxy metrics under direct optimization target.\n- [[2026-07-02-campbells-law]] \u2014 Corruption pressures on social processes and human incentives when quantitative metrics drive decision-making.\n- [[goodharts-vs-campbells-law]] \u2014 Comparative synthesis and worked examples distinguishing Goodhart's statistical framing from Campbell's behavioral framing. (The superseded fact note [[2026-07-02-goodharts-vs-campbells-law]] remains in `topics/` as a provenance record.)\n"
+  },
+  {
+    "path": "vault/moc/mathematics-and-geometry.md",
+    "title": "mathematics-and-geometry.md",
+    "type": "note",
+    "tags": [],
+    "content": "# Mathematics and Geometry\n<!-- Map of Content (moc/). Curator index \u2014 no type/frontmatter.\n     Not a processed note; edit freely as new notes are added. -->\n\nCurated index of notes on geometry, polyhedral topology, geodesics, and mathematical puzzles.\n\n## Geodesics & Polyhedral Geometry\n- [[2026-07-25-dudeneys-spider-and-fly-puzzle]] \u2014 Henry Dudeney's classic surface path optimization puzzle inside a cuboid.\n- [[2026-07-25-polyhedral-net-unfolding-for-geodesics]] \u2014 Flat 2D net unfolding technique for finding shortest paths on polyhedra.\n"
+  },
+  {
+    "path": "vault/moc/energy-and-power.md",
+    "title": "energy-and-power.md",
+    "type": "note",
+    "tags": [],
+    "content": "# Energy and Power\n<!-- Map of Content (moc/). Curator index \u2014 no type/frontmatter.\n     Not a processed note; edit freely as new notes are added. -->\n\nCurated index of notes on power generation, regional energy grids, and fuel technologies.\n\n## Thermal & Regional Infrastructure\n- [[2026-06-18-hongsa-lignite-power-plant]] \u2014 BOT lignite power plant in Xayaburi, Laos exporting power to Thailand.\n- [[2026-06-18-lignite-coal-predrying-technology]] \u2014 Engineering techniques (fluidized bed, mechanical thermal dewatering) to reduce moisture in low-rank coal.\n"
+  },
+  {
+    "path": "vault/moc/semiconductors.md",
+    "title": "semiconductors.md",
+    "type": "note",
+    "tags": [],
+    "content": "# Semiconductors\n<!-- Map of Content (moc/). Curator index \u2014 no type/frontmatter.\n     Not a processed note; edit freely as new notes are added. -->\n\nCurated index of notes on semiconductor fabrication, node roadmaps, and lithography technology.\n\n## Process Nodes & Fabrication\n- [[2026-05-22-tsmc-node-naming-conventions]] \u2014 Transition from nanometer to angstrom node naming (A13, N2U).\n- [[2026-05-22-china-euv-lithography-bottleneck]] \u2014 Manufacturing bottlenecks in domestic Chinese EUV light sources and optics.\n"
+  }
+]

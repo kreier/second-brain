@@ -95,10 +95,11 @@ def lint_file(path: Path):
     elif note_type not in TYPE_FOLDERS:
         errors.append(f"unknown type '{note_type}', expected one of {sorted(TYPE_FOLDERS)}")
     else:
-        expected_folder = VAULT_ROOT / TYPE_FOLDERS[note_type]
-        if expected_folder not in path.resolve().parents:
+        expected_subfolder = TYPE_FOLDERS[note_type]
+        posix_path = path.as_posix()
+        if f"/{expected_subfolder}/" not in f"/{posix_path}":
             errors.append(
-                f"type '{note_type}' should live under {TYPE_FOLDERS[note_type]}/, "
+                f"type '{note_type}' should live under {expected_subfolder}/, "
                 f"found at {path.relative_to(VAULT_ROOT)}"
             )
 
@@ -131,6 +132,8 @@ def main():
         files = [Path(a).resolve() for a in args]
     else:
         files = sorted((VAULT_ROOT / "processed").rglob("*.md"))
+        demo_files = sorted((VAULT_ROOT / "demo/vault/processed").rglob("*.md"))
+        files.extend(demo_files)
 
     total_errors = 0
     for f in files:

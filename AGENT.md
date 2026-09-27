@@ -26,7 +26,11 @@ Always follow this sequence before starting work:
 
 ### Golden Rules for the Coding Agent
 - **Never redesign the architecture**: Do not change agreed architecture without discussing it first and recording the decision as an Architectural Decision Record in `docs/decisions/`.
+- **Code to configuration, optimize for the Reference Profile**:
+  - Never hardcode host IPs (`10.5.5.5`), `/mnt/memory`, or serial devices into application code or Dockerfiles. All services must read configuration from `settings.yml` (see [`config/settings.example.yml`](config/settings.example.yml)) and environment variables.
+  - When analyzing performance, context windows, tensor offloading, and power control, benchmark against the [Canonical Reference Profile](docs/profiles/reference-vault-penta.md) (TX3 Mini at `10.5.5.2`, USB Memory, and Penta at `10.5.5.5` Quad-GPU Pascal 30GB VRAM).
 - **Work in small, testable slices**: Focus strictly on the active task within the current phase.
+- **Never commit personal notes to git**: Real personal knowledge lives on the external memory mount (`/mnt/memory`). Only safe synthetic data belongs in `demo/vault/`.
 - **Update status after work**: Once tasks or tests are executed, update `docs/STATUS.md` and check off items in the active phase specification.
 
 ---

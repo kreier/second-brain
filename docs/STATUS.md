@@ -34,10 +34,13 @@ Progress: [███░░░░░░░] 30% (Architecture & Documentation Fou
 
 - [x] Initial Obsidian vault structure (`raw/`, `processed/`, `templates/`, `moc/`, `frontmatter.md`).
 - [x] High-level architectural specification finalized with ChatGPT and user review.
-- [x] Airgapped network topology defined (`10.5.5.0/24`, Gateway `10.5.5.1`, Brain `10.5.5.2`, Penta GPU node, USB Memory).
+- [x] Airgapped network topology defined (`10.5.5.0/24`, Gateway `10.5.5.1`, Brain `10.5.5.2`, Penta Quad-GPU @ `10.5.5.5`, USB Memory).
+- [x] Canonical Reference Hardware Profile created in [`docs/profiles/reference-vault-penta.md`](profiles/reference-vault-penta.md).
 - [x] Nine-phase test-driven development roadmap formulated.
 - [x] Canonical documentation system established (`docs/ARCHITECTURE.md`, `ROADMAP.md`, `STATUS.md`, `DATA_MODEL.md`, `API.md`, `DEVELOPMENT.md`).
-- [x] Architectural Decision Records created (ADR-001 through ADR-005).
+- [x] Architectural Decision Records created (ADR-001 through ADR-006).
+- [x] Hardware-agnostic configuration template created ([`config/settings.example.yml`](../config/settings.example.yml)).
+- [x] Personal notes decoupled from repository; sample data moved to [`demo/vault/`](../demo/vault/) with interactive GitHub Pages application ([`demo/index.html`](../demo/index.html)) and workflow ([`.github/workflows/deploy-pages.yml`](../.github/workflows/deploy-pages.yml)).
 
 ---
 

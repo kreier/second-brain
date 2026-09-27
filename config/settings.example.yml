@@ -1,0 +1,63 @@
+# =============================================================================
+# Second Brain Configuration (settings.example.yml)
+# Copy this file to settings.yml and adjust for your local environment.
+# =============================================================================
+version: "1.0"
+
+# -----------------------------------------------------------------------------
+# 1. MEMORY STORE (External or Local Knowledge Path)
+# -----------------------------------------------------------------------------
+# Path mounted into containers at /memory.
+# On Tanix TX3 Mini: /mnt/memory (USB external storage)
+# On standard workstation: ./data/memory or /path/to/obsidian/vault
+memory:
+  path: "/mnt/memory"
+  sqlite_db: "second_brain.db"
+  backup_dir: "/mnt/memory/backups"
+
+# -----------------------------------------------------------------------------
+# 2. INTELLIGENCE (LLM Inference Engine)
+# -----------------------------------------------------------------------------
+# Provider options:
+#   - ollama: Local or remote Ollama server (default)
+#   - vllm: vLLM OpenAI-compatible server
+#   - openai: Standard OpenAI API compatible endpoint
+#   - mock: Returns synthetic responses (useful for development & CI)
+intelligence:
+  provider: "ollama"
+  # Reference Profile (Penta Quad-GPU workstation): http://10.5.5.5:11434
+  # Single workstation / laptop default: http://localhost:11434
+  endpoint: "http://10.5.5.5:11434"
+  model: "qwen-3.8-27b"
+  embedding_model: "nomic-embed-text"
+  timeout_seconds: 180
+  context_window_tokens: 16384
+
+# -----------------------------------------------------------------------------
+# 3. NETWORK & VAULT ISOLATION
+# -----------------------------------------------------------------------------
+network:
+  subnet: "10.5.5.0/24"
+  # Switched gateway for on-demand update windows (blank if always online)
+  gateway_ip: "10.5.5.1"
+  airgapped_mode: true
+
+# -----------------------------------------------------------------------------
+# 4. POWER MANAGEMENT (Hardware Relay for Compute Node)
+# -----------------------------------------------------------------------------
+# Automated on-demand power lifecycle for dedicated GPU nodes (e.g. Penta)
+power_management:
+  enabled: true                    # Set false for single-machine setups
+  method: "arduino_relay"          # arduino_relay | wake_on_lan | manual | none
+  serial_port: "/dev/ttyUSB0"      # USB serial device connected to Arduino
+  target_ip: "10.5.5.5"            # IP to poll for health & ping
+  health_endpoint: "http://10.5.5.5:11434/api/tags"
+  idle_shutdown_minutes: 15        # Automatically power down when queue is empty
+  ssh_user: "mk"                   # User for ACPI graceful shutdown: ssh mk@10.5.5.5 sudo shutdown -h now
+
+# -----------------------------------------------------------------------------
+# 5. WEB FRONTEND & SERVICES
+# -----------------------------------------------------------------------------
+web:
+  port: 80                         # Host port to expose (e.g. 80 or 3000)
+  demo_mode: false                 # Enable mock fixtures for public demos
