@@ -1,0 +1,70 @@
+# =============================================================================
+# Second Brain — Multi-Container Docker Compose Orchestration
+# =============================================================================
+
+services:
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    container_name: second-brain-web
+    restart: unless-stopped
+    ports:
+      - "${WEB_PORT:-3000}:80"
+    depends_on:
+      - curator
+      - brain
+      - statistics
+    networks:
+      - second-brain-net
+
+  curator:
+    build:
+      context: ./curator
+      dockerfile: Dockerfile
+    container_name: second-brain-curator
+    restart: unless-stopped
+    ports:
+      - "8001:8001"
+    environment:
+      - MEMORY_PATH=/memory
+    volumes:
+      - ${MEMORY_PATH:-./data/memory}:/memory
+    networks:
+      - second-brain-net
+
+  brain:
+    build:
+      context: ./brain
+      dockerfile: Dockerfile
+    container_name: second-brain-brain
+    restart: unless-stopped
+    ports:
+      - "8002:8002"
+    environment:
+      - MEMORY_PATH=/memory
+      - INTELLIGENCE_ENDPOINT=${INTELLIGENCE_ENDPOINT:-http://10.5.5.5:11434}
+      - INTELLIGENCE_MODEL=${INTELLIGENCE_MODEL:-qwen-3.8-27b}
+    volumes:
+      - ${MEMORY_PATH:-./data/memory}:/memory
+    networks:
+      - second-brain-net
+
+  statistics:
+    build:
+      context: ./statistics
+      dockerfile: Dockerfile
+    container_name: second-brain-statistics
+    restart: unless-stopped
+    ports:
+      - "8003:8003"
+    environment:
+      - MEMORY_PATH=/memory
+    volumes:
+      - ${MEMORY_PATH:-./data/memory}:/memory
+    networks:
+      - second-brain-net
+
+networks:
+  second-brain-net:
+    driver: bridge
